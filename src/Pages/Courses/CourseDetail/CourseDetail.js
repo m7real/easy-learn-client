@@ -1,18 +1,36 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { GiCutDiamond } from "react-icons/gi";
+import { FaDownload } from "react-icons/fa";
 
 const CourseDetail = () => {
   const course = useLoaderData();
+  const navigate = useNavigate();
+
+  //   destructuring loaded data for better use
   const { _id, title, price, img, details, rating } = course;
+
+  const handleNavigate = () => {
+    navigate(`/checkout/${_id}`);
+  };
+
   return (
     <div className="w-9/12 mx-auto  mt-12">
-      <h2 className="text-4xl font-semibold mb-6 text-center">{title}</h2>
+      <h2 className="text-4xl font-semibold mb-6 text-center">
+        <span className="mr-3">{title}</span> <FaDownload className="inline hover:cursor-pointer hover:text-blue-500" />
+      </h2>
       <hr />
       <img className="mx-auto my-6 w-96" src={img} alt="" />
+      <p>
+        <span className="font-bold text-xl">Course Overview: </span> {details}
+      </p>
 
-      <p>{details}</p>
-      <p className="font-bold">Price: ${price}</p>
-      <p className="font-bold">Rating: {rating}</p>
+      <p className="font-bold my-3">Rating: {rating}</p>
+      <p className="font-bold mb-3">Price: ${price}</p>
+      <button onClick={handleNavigate} className="btn glass     ">
+        Get premium access
+        <GiCutDiamond className="ml-2" />
+      </button>
     </div>
   );
 };
