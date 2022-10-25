@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Course = ({ course }) => {
-  const { _id, title, price, img, details, rating } = course;
+  const { _id, title, price, img, rating } = course;
   const navigate = useNavigate();
 
   const handleNavigate = () => {
