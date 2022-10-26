@@ -2,6 +2,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -81,14 +83,16 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
             <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline btn-ghost">
-              Google
+              <FcGoogle />
+              <span className="ml-4">Sign In With Google</span>
             </button>
-            <button onClick={handleGithubSignIn} type="button" className="btn btn-outline btn-ghost">
-              Github
+            <button onClick={handleGithubSignIn} type="button" className="btn btn-outline btn-ghost ">
+              <FaGithub />
+              <span className="ml-4">Sign In With Github</span>
             </button>
             <label className="label">
               <Link to="/register" className="label-text-alt link link-hover">
-                New to the site? Register Here
+                New to the site? <span className="text-success">Register Here</span>
               </Link>
             </label>
           </form>

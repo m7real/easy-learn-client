@@ -70,7 +70,7 @@ const Header = () => {
               Log Out
             </button>
             <span className="tooltip tooltip-left" data-tip={user?.displayName || "No Name Found"}>
-              {user?.photoURL ? <img className="w-8  mx-4 rounded-full" src={user?.photoURL} alt="" /> : <FaUserAlt className="mx-4" />}
+              {user?.photoURL ? <img className="w-8 h-8  mx-4 rounded-full" src={user?.photoURL} alt="" /> : <FaUserAlt className="mx-4" />}
             </span>
           </>
         ) : (
