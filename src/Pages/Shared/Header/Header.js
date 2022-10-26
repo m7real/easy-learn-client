@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/e-logo.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
@@ -36,7 +37,6 @@ const Header = () => {
           </ul>
         </div>
         <img className="w-8" src={logo} alt="" />
-        {/* This link will lead to Home Route */}
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           Easy Learn
         </Link>
@@ -69,7 +69,9 @@ const Header = () => {
             <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">
               Log Out
             </button>
-            <img className="w-8  mx-4 rounded-full" title={user?.displayName} src={user?.photoURL} alt="" />
+            <span className="tooltip tooltip-left" data-tip={user?.displayName || "No Name Found"}>
+              {user?.photoURL ? <img className="w-8  mx-4 rounded-full" src={user?.photoURL} alt="" /> : <FaUserAlt className="mx-4" />}
+            </span>
           </>
         ) : (
           <Link to="/login" className="btn btn-outline btn-sm text-gray-100">
