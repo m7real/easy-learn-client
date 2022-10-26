@@ -91,7 +91,8 @@ const Login = () => {
               <span className="ml-4">Sign In With Github</span>
             </button>
             <label className="label">
-              <Link to="/register" className="label-text-alt link link-hover">
+              {/* sending the location that had to be redirected if logged in to the register form so that it can redirect to the desired page  */}
+              <Link to="/register" state={{ from: location.state?.from }} replace className="label-text-alt link link-hover">
                 New to the site? <span className="text-success">Register Here</span>
               </Link>
             </label>

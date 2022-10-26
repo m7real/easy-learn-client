@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { ThreeDots } from "react-loader-spinner";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import Spinner from "../../Pages/Others/Spinner/Spinner";
 
 /* 
 1. only allow authenticated users to visit the route
@@ -14,20 +14,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[46.5vh]">
-        <ThreeDots
-          height="80"
-          width="80"
-          radius="9"
-          color="#4fa94d"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{}}
-          wrapperClassName=""
-          visible={true}
-        />
-      </div>
-    );
+    return <Spinner></Spinner>;
   }
 
   if (!user) {
