@@ -6,7 +6,7 @@ const Header = () => {
   const [checked, setChecked] = useState(true);
 
   return (
-    <div className="navbar bg-primary text-primary-content">
+    <div className="navbar  bg-primary text-primary-content">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,7 +27,6 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {/* <a href="https://www.flaticon.com/free-icons/letter-e" title="letter e icons">Letter e icons created by Hight Quality Icons - Flaticon</a> */}
         <img className="w-8" src={logo} alt="" />
         {/* This link will lead to Home Route */}
         <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -56,7 +55,9 @@ const Header = () => {
             <input onClick={() => setChecked(!checked)} type="checkbox" className="toggle toggle-sm ml-1 mr-4" checked={checked} />
           </label>
         </div>
-        <Link className="btn btn-outline text-gray-100">Log In</Link>
+        <Link to="/login" className="btn btn-outline text-gray-100">
+          Log In
+        </Link>
       </div>
     </div>
   );
