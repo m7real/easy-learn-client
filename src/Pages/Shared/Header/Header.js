@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/e-logo.png";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const [checked, setChecked] = useState(true);
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="navbar  bg-primary text-primary-content">
@@ -37,6 +39,7 @@ const Header = () => {
       <div className="navbar-end">
         <div className="hidden lg:flex ">
           <ul className="menu menu-horizontal p-0">
+            <li>{user?.displayName}</li>
             <li>
               <Link to="/courses">Courses</Link>
             </li>
