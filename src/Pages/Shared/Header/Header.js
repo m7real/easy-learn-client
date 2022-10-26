@@ -6,7 +6,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const [checked, setChecked] = useState(true);
-  const { user, logOut } = useContext(AuthContext);
+  const { user, loading, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -64,7 +64,7 @@ const Header = () => {
             <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle toggle-sm ml-1 mr-4" checked={checked} />
           </label>
         </div>
-        {user?.uid ? (
+        {user?.uid || loading ? (
           <>
             <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">
               Log Out
