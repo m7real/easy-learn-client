@@ -5,7 +5,13 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const [checked, setChecked] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
 
   return (
     <div className="navbar  bg-primary text-primary-content">
@@ -55,12 +61,21 @@ const Header = () => {
         <div className="form-control mx-3">
           <label className="label cursor-pointer">
             <span className="label-text mx-1 min-w-[31px]">{checked ? "Dark" : "Light"}</span>
-            <input onClick={() => setChecked(!checked)} type="checkbox" className="toggle toggle-sm ml-1 mr-4" checked={checked} />
+            <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle toggle-sm ml-1 mr-4" checked={checked} />
           </label>
         </div>
-        <Link to="/login" className="btn btn-outline text-gray-100">
-          Log In
-        </Link>
+        {user?.uid ? (
+          <>
+            <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">
+              Log Out
+            </button>
+            <img className="w-8  mx-4 rounded-full" title={user?.displayName} src={user?.photoURL} alt="" />
+          </>
+        ) : (
+          <Link to="/login" className="btn btn-outline btn-sm text-gray-100">
+            Log In
+          </Link>
+        )}
       </div>
     </div>
   );

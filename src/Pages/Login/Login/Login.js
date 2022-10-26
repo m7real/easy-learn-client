@@ -1,12 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { providerLogin, signIn, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-  const handleGoogleSignIn = () => {};
-  const handleGithubSignIn = () => {};
+
+  // sign in with google
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        // navigate("/");
+      })
+      .catch((error) => console.error(error));
+  };
+
+  // sign in with github
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div className="hero min-h-screen bg-base-100">
@@ -34,10 +62,10 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
-            <button type="button" className="btn btn-outline btn-ghost">
+            <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline btn-ghost">
               Google
             </button>
-            <button type="button" className="btn btn-outline btn-ghost">
+            <button onClick={handleGithubSignIn} type="button" className="btn btn-outline btn-ghost">
               Github
             </button>
             <label className="label">
