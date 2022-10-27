@@ -29,21 +29,22 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://assignment-10-server-bice.vercel.app/courses"),
       },
       {
         path: "/course/:id",
         element: <CourseDetail></CourseDetail>,
-        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-10-server-bice.vercel.app/course/${params.id}`),
       },
       {
         path: "/checkout/:id",
         element: (
+          // this will be a private route
           <PrivateRoute>
             <Checkout></Checkout>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-10-server-bice.vercel.app/course/${params.id}`),
       },
       {
         path: "/login",
@@ -56,17 +57,18 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
-        loader: () => fetch("http://localhost:5000/blogs"),
+        loader: () => fetch("https://assignment-10-server-bice.vercel.app/blogs"),
       },
       {
         path: "/faq",
         element: <FAQ></FAQ>,
-        loader: () => fetch("http://localhost:5000/faq"),
+        loader: () => fetch("https://assignment-10-server-bice.vercel.app/faq"),
       },
     ],
   },
   {
     path: "*",
+    // this element will be shown on 404 not found route
     element: <NotFoundPage></NotFoundPage>,
   },
 ]);

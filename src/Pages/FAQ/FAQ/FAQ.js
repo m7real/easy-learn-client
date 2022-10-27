@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Accordion from "../Accordion/Accordion";
 
+// container component for FAQ Accordion
 const FAQ = () => {
   const faqs = useLoaderData();
 

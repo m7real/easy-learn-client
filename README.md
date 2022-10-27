@@ -15,7 +15,7 @@ Live Website: [https://learning-platform-90ff4.web.app/](https://learning-platfo
 - There is a blog page where you can get some simple blog.
 - A FAQ section used along with accordion to serve some frequently asked questions.
 - There is a 404 not found page added to handle unrecognized routes.
-- ### Frameworks or Libraries used in this project-
+- ### Technologies, Frameworks or Libraries used in this project-
   - React
   - React Router
   - Firebase (for authentication)

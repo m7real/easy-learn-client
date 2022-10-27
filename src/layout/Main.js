@@ -4,6 +4,8 @@ import Footer from "../Pages/Shared/Footer/Footer";
 import Header from "../Pages/Shared/Header/Header";
 
 const Main = () => {
+  // this is the main layout
+
   return (
     <div>
       <Header></Header>

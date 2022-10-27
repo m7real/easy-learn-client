@@ -12,6 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // getting the route to be redirected after login
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
@@ -26,7 +27,6 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         form.reset();
         toast.success("Login Successful!");
         setError("");
@@ -44,7 +44,6 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -55,7 +54,6 @@ const Login = () => {
     providerLogin(githubProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));

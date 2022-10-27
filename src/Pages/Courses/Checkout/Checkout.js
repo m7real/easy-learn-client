@@ -4,6 +4,8 @@ import { useLoaderData } from "react-router-dom";
 const Checkout = () => {
   const course = useLoaderData();
 
+  // only authenticated users can get access here
+
   return (
     <div className="flex justify-center items-center min-h-[46.5vh]">
       <div>

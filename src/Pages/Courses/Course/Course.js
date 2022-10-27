@@ -5,6 +5,7 @@ const Course = ({ course }) => {
   const { _id, title, price, img, rating } = course;
   const navigate = useNavigate();
 
+  // to navigate to the details of the selected course
   const handleNavigate = () => {
     navigate(`/course/${_id}`);
   };

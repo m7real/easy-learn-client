@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  // links in the footer are not navigating anywhere right now, should update if needed
+
   return (
     <footer className="footer footer-center p-10 mt-16 bg-base-200 text-base-content rounded">
       <div className="grid grid-flow-col gap-4">

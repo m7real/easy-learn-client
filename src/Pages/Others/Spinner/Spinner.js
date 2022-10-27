@@ -1,6 +1,7 @@
 import React from "react";
 import { ThreeDots } from "react-loader-spinner";
 
+// this is a three dots loader-spinner
 const Spinner = () => {
   return (
     <div className="flex justify-center items-center min-h-[46.5vh]">

@@ -3,6 +3,8 @@ import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import { router } from "./Routes/Routes/Routes";
 
+// toaster added to show toast throughout the application
+
 function App() {
   return (
     <div>

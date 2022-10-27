@@ -2,6 +2,8 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleBlogItem from "../SingleBlogItem/SingleBlogItem";
 
+// this is the container component for the blogs
+
 const Blog = () => {
   const blogs = useLoaderData();
 

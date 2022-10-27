@@ -10,6 +10,7 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // getting the route to be redirected after register
   const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
@@ -23,7 +24,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         form.reset();
         toast.success("Registration Successful!");
         handleUpdateUserProfile(name, photoURL);
@@ -36,6 +36,7 @@ const Register = () => {
       });
   };
 
+  // update the user's Full Name and photoURL to firebase
   const handleUpdateUserProfile = (name, photoURL) => {
     const profile = {
       displayName: name,

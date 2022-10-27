@@ -8,6 +8,7 @@ const CourseDetail = () => {
   const course = useLoaderData();
   const navigate = useNavigate();
 
+  // ref used to refer the element that will be downloaded in the pdf
   const ref = useRef();
 
   //   destructuring loaded data for better use

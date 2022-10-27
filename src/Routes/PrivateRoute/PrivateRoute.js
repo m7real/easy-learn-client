@@ -13,6 +13,7 @@ const PrivateRoute = ({ children }) => {
 
   const location = useLocation();
 
+  // spinner used to handle loading state on promise resolve
   if (loading) {
     return <Spinner></Spinner>;
   }

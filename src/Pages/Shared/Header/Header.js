@@ -8,6 +8,7 @@ const Header = () => {
   const [checked, setChecked] = useState(true);
   const { user, loading, logOut } = useContext(AuthContext);
 
+  // signs out the user
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -58,11 +59,13 @@ const Header = () => {
           </ul>
         </div>
         <div className="form-control mx-3">
+          {/* theme toggler added but doesn't change theme */}
           <label className="label cursor-pointer">
             <span className="label-text mx-1 min-w-[31px]">{checked ? "Dark" : "Light"}</span>
             <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle toggle-sm ml-1 mr-4" checked={checked} />
           </label>
         </div>
+        {/* show the log in or log out and user profile while user not found or found accordingly */}
         {user?.uid || loading ? (
           <>
             <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">

@@ -11,6 +11,7 @@ const Home = () => {
           <br />
           We Provide Quality Learning Content on Various Technology.
         </p>
+        {/* navigate to the courses page */}
         <Link to="/courses" className="btn btn-outline btn-wide mx-auto  mt-10">
           Get Started
         </Link>
