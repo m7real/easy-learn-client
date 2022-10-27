@@ -13,12 +13,6 @@ const CourseDetail = () => {
   //   destructuring loaded data for better use
   const { _id, title, price, img, details, rating } = course;
 
-  // const options = {
-  //   orientation: "portrait",
-  //   unit: "in",
-  //   format: [100, 100],
-  // };
-
   const handleNavigate = () => {
     navigate(`/checkout/${_id}`);
   };

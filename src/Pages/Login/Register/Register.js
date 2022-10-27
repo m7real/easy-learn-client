@@ -42,7 +42,9 @@ const Register = () => {
       photoURL: photoURL,
     };
     updateUserProfile(profile)
-      .then(() => {})
+      .then(() => {
+        window.reload();
+      })
       .catch((e) => console.error(e));
   };
 

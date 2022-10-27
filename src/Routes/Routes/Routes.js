@@ -9,12 +9,18 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import NotFoundPage from "../../Pages/Others/NotFoundPage/NotFoundPage";
+import ScrollToTop from "../../Pages/Others/ScrollToTop/ScrollToTop";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: (
+      // wrapper used so that previous scroll resets on new route
+      <ScrollToTop>
+        <Main></Main>
+      </ScrollToTop>
+    ),
     children: [
       {
         path: "/",
