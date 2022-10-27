@@ -62,7 +62,7 @@ const Header = () => {
         <div className="form-control lg:mx-3">
           {/* theme toggler added but doesn't change theme */}
           <label className="label cursor-pointer">
-            <span className="label-text text-xs mx-1 lg:min-w-[31px]">{checked ? "Dark" : "Light"}</span>
+            <span className="label-text text-xs mr-0 lg:mx-1 lg:min-w-[31px]">{checked ? "Dark" : "Light"}</span>
             <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle toggle-xs lg:toggle-sm ml-1 mr-4" checked={checked} />
           </label>
         </div>
@@ -76,7 +76,7 @@ const Header = () => {
               {user?.photoURL ? (
                 <img className="w-6 h-6 lg:w-8 lg:h-8  mr-5 ml-2 lg:mx-4 rounded-full" src={user?.photoURL} alt="" />
               ) : (
-                <FaUserAlt className="mx-2 lg:mx-4" />
+                <FaUserAlt className="ml-2 mr-1 md:mx-4" />
               )}
             </span>
           </>
