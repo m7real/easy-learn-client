@@ -7,6 +7,7 @@ const Blog = () => {
 
   return (
     <div>
+      <h2 className="text-4xl text-center mt-6 ">Featured Blogs</h2>
       {blogs.map((blog) => (
         <SingleBlogItem key={blog._id} blog={blog}></SingleBlogItem>
       ))}

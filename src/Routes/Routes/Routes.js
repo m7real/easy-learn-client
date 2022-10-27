@@ -55,6 +55,7 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQ></FAQ>,
+        loader: () => fetch("http://localhost:5000/faq"),
       },
     ],
   },
