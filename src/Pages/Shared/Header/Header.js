@@ -72,7 +72,7 @@ const Header = () => {
             <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">
               Log Out
             </button>
-            <span className="tooltip tooltip-left" data-tip={user?.displayName || "No Name Found"}>
+            <span className="tooltip tooltip-left" data-tip={user?.displayName || "User"}>
               {user?.photoURL ? <img className="w-8 h-8  mx-4 rounded-full" src={user?.photoURL} alt="" /> : <FaUserAlt className="mx-4" />}
             </span>
           </>
