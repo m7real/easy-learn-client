@@ -3,6 +3,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/e-logo.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { Dna } from "react-loader-spinner";
 
 const Header = () => {
   const [checked, setChecked] = useState(true);
@@ -76,7 +77,7 @@ const Header = () => {
             </span>
           </>
         ) : loading ? (
-          <></>
+          <Dna visible={true} height="48" width="48" ariaLabel="dna-loading" wrapperStyle={{}} wrapperClass="dna-wrapper" />
         ) : (
           <Link to="/login" className="btn btn-outline btn-sm text-gray-100">
             Log In
