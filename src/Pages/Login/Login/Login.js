@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { providerLogin, signIn } = useContext(AuthContext);
+  const { setLoading, providerLogin, signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,6 +36,9 @@ const Login = () => {
         console.error(e);
         setError(e.message);
         toast.error(e.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -46,7 +49,10 @@ const Login = () => {
         const user = result.user;
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // sign in with github
@@ -56,7 +62,10 @@ const Login = () => {
         const user = result.user;
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (

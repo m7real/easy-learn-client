@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { setLoading, createUser, updateUserProfile } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,6 +33,9 @@ const Register = () => {
         console.error(e);
         setError(e.message);
         toast.error(e.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
