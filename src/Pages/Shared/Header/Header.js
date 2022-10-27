@@ -31,15 +31,15 @@ const Header = () => {
             </li>
 
             <li>
-              <Link>FAQ</Link>
+              <Link to="/faq">FAQ</Link>
             </li>
             <li>
-              <Link>Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
         </div>
         <img className="w-8" src={logo} alt="" />
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case text-base lg:text-xl">
           Easy Learn
         </Link>
       </div>
@@ -59,27 +59,31 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className="form-control mx-3">
+        <div className="form-control lg:mx-3">
           {/* theme toggler added but doesn't change theme */}
           <label className="label cursor-pointer">
-            <span className="label-text mx-1 min-w-[31px]">{checked ? "Dark" : "Light"}</span>
-            <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle toggle-sm ml-1 mr-4" checked={checked} />
+            <span className="label-text text-xs mx-1 lg:min-w-[31px]">{checked ? "Dark" : "Light"}</span>
+            <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle toggle-xs lg:toggle-sm ml-1 mr-4" checked={checked} />
           </label>
         </div>
         {/* show the log in or log out and user profile while user not found or found accordingly */}
         {user?.uid ? (
           <>
-            <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">
+            <button onClick={handleLogOut} className="btn btn-xs  normal-case text-gray-100">
               Log Out
             </button>
             <span className="tooltip tooltip-left" data-tip={user?.displayName || "User"}>
-              {user?.photoURL ? <img className="w-8 h-8  mx-4 rounded-full" src={user?.photoURL} alt="" /> : <FaUserAlt className="mx-4" />}
+              {user?.photoURL ? (
+                <img className="w-6 h-6 lg:w-8 lg:h-8  mr-5 ml-2 lg:mx-4 rounded-full" src={user?.photoURL} alt="" />
+              ) : (
+                <FaUserAlt className="mx-2 lg:mx-4" />
+              )}
             </span>
           </>
         ) : loading ? (
           <Dna visible={true} height="48" width="48" ariaLabel="dna-loading" wrapperStyle={{}} wrapperClass="dna-wrapper" />
         ) : (
-          <Link to="/login" className="btn btn-outline btn-sm text-gray-100">
+          <Link to="/login" className="btn btn-outline btn-xs normal-case lg:uppercase lg:btn-sm text-gray-100">
             Log In
           </Link>
         )}
