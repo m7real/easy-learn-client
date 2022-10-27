@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -27,12 +28,14 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        toast.success("Login Successful!");
         setError("");
         navigate(from, { replace: true });
       })
       .catch((e) => {
         console.error(e);
         setError(e.message);
+        toast.error(e.message);
       });
   };
 

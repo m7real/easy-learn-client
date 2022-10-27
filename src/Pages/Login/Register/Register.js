@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -24,12 +25,14 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        toast.success("Registration Successful!");
         handleUpdateUserProfile(name, photoURL);
         navigate(from, { replace: true });
       })
       .catch((e) => {
         console.error(e);
         setError(e.message);
+        toast.error(e.message);
       });
   };
 
