@@ -66,7 +66,7 @@ const Header = () => {
           </label>
         </div>
         {/* show the log in or log out and user profile while user not found or found accordingly */}
-        {user?.uid || loading ? (
+        {user?.uid ? (
           <>
             <button onClick={handleLogOut} className="btn btn-xs normal-case text-gray-100">
               Log Out
@@ -75,6 +75,8 @@ const Header = () => {
               {user?.photoURL ? <img className="w-8 h-8  mx-4 rounded-full" src={user?.photoURL} alt="" /> : <FaUserAlt className="mx-4" />}
             </span>
           </>
+        ) : loading ? (
+          <></>
         ) : (
           <Link to="/login" className="btn btn-outline btn-sm text-gray-100">
             Log In
